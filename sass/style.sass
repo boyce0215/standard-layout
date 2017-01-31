@@ -1,0 +1,343 @@
+@charset "UTF-8"
+
+$color_red: #d03c56
+$color_white: #fff
+$color_gray: #ddc
+$color_black: #666
+$color_blue: #2c3c53
+$color_green: #b5d264
+$color_text: #333
+$color_hover: #fafaf8
+
+/* commonly */
+html
+	font-size: 62.5% //網頁預設字體為16px,16px*62.5%=10px,可以1rem=10px
+*,*::after,*::before 
+	box-sizing: border-box
+body
+	color: $color_text
+	font-size: 1.2rem //12px
+	font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+a:link,a:visited,a:hover,a:active
+	color: $color_red
+	text-decoration: none
+.clearfix::after //可以使父元素不受子元素float屬性影響
+	content: "" //擬元素一定要有
+	display: block
+	clear: both //清除浮動
+.hidden
+	display: none
+/* 	header */
+.header
+	width: 100%
+	padding: 28px 0 10px
+	background: url('../images/bg-header.gif') repeat-x 
+	box-shadow: 0 0 10px 1px #e3e3e3
+.logo
+	width: 224px
+	height: 56px
+	margin: 0 auto
+	background: url('../images/logo.png')
+	a
+		display: block
+		width: 100%
+		height: 100%
+.global-nav
+	margin-top: 15px
+	text-align: center
+	.nav-item
+		display: inline-block
+		margin: 0 10px
+		a
+			display: inline-block
+			width: 100px
+			height: 30px			//
+			line-height: 30px //設定height與line-height一樣,可以使文字垂直置中
+			text-align: center
+			border-radius: 8px
+			color: $color_black
+			font-size: 1.3rem
+			letter-spacing: 1px
+			transition: 0.15s
+			&:hover
+				background-color: $color_red
+				color: $color_white
+	.active a
+		border-radius: 8px
+		background-color: $color_red
+		color: $color_white
+/* wrapper */
+.wrapper
+	width: 970px
+	margin: 30px auto 40px
+/* main */
+.main
+	display: block
+	float: left
+	width: 660px
+.hot-topic
+	display: block
+	height: 300px
+	margin-bottom: 30px
+	box-shadow: 0 6px 4px -4px rgba(0,0,0,0.15)
+	transition: 0.15s
+	&:hover
+		opacity: 0.85
+	.image
+		float: left
+		width: 50%
+		height: 100%
+	.content
+		position: relative
+		float: left
+		width: 50%
+		height: 100%
+		padding: 105px 25px 0
+		background-color: #2d3d54
+		line-height: 1.6
+	.title
+		margin-bottom: 15px
+		color: $color_white
+		font-weight: normal
+		font-size: 2rem
+	.desc
+		color: $color_gray
+	.date
+		position: absolute
+		top: 60px
+		left: 0
+		width: 140px
+		padding: 4px
+		background-color: $color_white
+		color: #2d3d54
+		text-align: center
+		letter-spacing: 1px
+		font-weight: bold
+		font-size: 1.1rem
+		line-height: 1
+.heading
+	padding: 10px 12px
+	background: url("../images/bg-slash.gif")
+	letter-spacing: 1px
+	font-size: 1.6rem
+.scroll-list
+	max-height: 200px
+	overflow-y: auto
+	margin-bottom: 30px
+	list-style-type: none
+	.scroll-item 
+		&:nth-of-type(even) a
+			background: url("../images/bg-slash.gif")
+		a
+			display: block
+			padding: 10px 15px
+			color: $color_text
+			font-size: 0 //清除文字之間的半形空白,但子元素必須設定font-size
+			transition: background-color 0.1s
+			&:hover
+				background-color: $color_hover 
+	.date
+		display: inline-block
+		width: 21%
+		letter-spacing: 1px
+		font-weight: bold
+		font-size: 1.0rem 
+	.category
+		display: inline-block
+		width: 8%
+		border-radius: 5px
+		background-color: $color_red
+		color: $color_white
+		text-align: center
+		letter-spacing: 1px
+		line-height: 16px
+		font-size: 1.0rem
+	.news
+		background-color: $color_blue
+	.title
+		display: inline-block
+		width: 71%
+		padding-left: 15px
+		white-space: nowrap //使文字不換行
+		overflow: hidden //隱藏超出的文字
+		text-overflow: ellipsis //超出的文字換成...
+		font-size: 1.2rem
+.article-box
+	position: relative
+	display: block
+	width: 315px
+	height: 360px
+	margin-bottom: 30px
+	padding: 210px 15px 0
+	box-shadow: 6px 6px 8px -4px rgba(0,0,0,0.15)
+	transition: opacity 0.15s
+	&:nth-of-type(odd)
+		float: left
+	&:nth-of-type(even)
+		float: right
+	&:hover
+		opacity: 0.8
+	.title
+		margin-bottom: 30px
+		color: $color_black
+		font-size: 1.4rem
+		line-height: 1.6
+	.desc
+		margin-top: 5px
+		color: $color_text
+		white-space: nowrap
+		overflow: hidden
+		text-overflow: ellipsis
+	.date
+		position: absolute
+		right: 0
+		bottom: 15px
+		width: 160px
+		padding: 4px
+		background-color: $color_green
+		color: #2d3d54
+		text-align: center
+		letter-spacing: 1px
+		font-weight: bold
+		font-size: 1.1rem
+	.image
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+/*side*/
+.sidemenu
+	float: right
+	width: 275px
+.ranking
+	margin-bottom: 30px
+	list-style-type: none
+	counter-reset: ranking //1.決定counter的名稱
+	.ranking-item
+		margin-top: 15px
+		position: relative
+		a
+			display: block
+			font-size: 0
+			transition: opacity 0.15s
+			&:hover
+				opacity: 0.8
+		.image
+			width: 55px
+			height: 55px
+			margin-right: 20px
+		.order
+			position: absolute
+			// display: inline-block
+			width: 18px
+			height: 18px
+			// margin: 0 10px
+			top: -9px
+			left: 45px
+			border-radius: 100%
+			border: 1px solid #ccc
+			color: #aaa
+			background-color: $color_white
+			vertical-align: 20px
+			text-align: center
+			font-weight: bold
+			line-height: 16px
+			// -webkit-tansform: rotate(45deg)
+			// -ms-transform: rotate(45deg)
+			// transform: rotate(45deg)
+			&::before
+				content: counter(ranking) //2.顯示counter的數值
+				counter-increment: ranking //3.將counter數值增加
+				// display: inline-block
+				font-size: 1rem
+				// -webkit-tansform: rotate(-45deg)
+				// -ms-transform: rotate(-45deg)
+				// transform: rotate(-45deg)
+		.text
+			display: inline-block
+			width: 182px
+			color: #000
+			vertical-align: top
+			font-size: 1.2rem
+			line-height: 1.5
+		&:nth-of-type(1),&:nth-of-type(2),&:nth-of-type(3) 
+			.order
+				border: none
+				color: $color_white
+				font-weight: normal
+				line-height: 18px
+		&:nth-of-type(1) .order
+			background-color: #dab413
+		&:nth-of-type(2) .order
+			background-color: #6e7b84
+		&:nth-of-type(3) .order
+			background-color: #a0541a
+.documents
+	margin: 10px 10px 30px
+	list-style-type: none
+	ul
+		list-style-type: none
+	>li .title
+		margin: 15px 0
+		padding-left: 8px
+		border-left: 5px solid $color_red
+		font-size: 1.4rem
+		line-height: 1.2
+	>li+li
+		margin-top: 25px
+	>li ul
+		margin: 15px
+		>li
+			margin-bottom: 15px
+			padding-left: 10px
+			background: url("../images/arrow.gif") no-repeat left center
+	a:hover
+		text-decoration: underline
+.search-box
+	padding: 15px
+	background-color: #ccc
+	font-size: 0
+	>*
+		font-size: 1.2rem
+	.search-input
+		width: 205px
+		height: 26px
+		padding: 0 10px
+		border: none
+	.search-button
+		width: 40px
+		height: 26px
+		border: none
+		background-color: $color_red
+		color: $color-white
+		cursor: pointer
+	.text
+		margin-top: 12px
+/*footer*/
+.footer
+	width: 100%
+	padding: 20px 0 30px
+	background: #2d3d54 url("../images/bg-footer.gif")
+	color: $color_white
+.horizontal-list
+	width: 970px
+	margin: 0 auto
+	text-align: right
+	font-size: 0
+	.horizontal-item
+		display: inline-block
+		padding: 0 15px
+		letter-spacing: 1px
+		+ .horizontal-item
+			border-left: 1px solid #bbb
+		a
+			border-bottom: 1px dashed #777
+			color: #bbb
+			font-size: 1.1rem
+			transition: color 0.15s
+			&:hover
+				color: #ddd
+.copyright
+	margin-top: 30px
+	text-align: center
+	letter-spacing: 1px
